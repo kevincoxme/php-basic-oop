@@ -11,14 +11,26 @@ class Student extends Sql{
 		// SQL Query here
 		$sql = 'INSERT INTO student VALUES (null,"Kevin", "Monteza", 23)'; 
 
-		// '$this->getConnection()' may access na tayo sa Sql class kya magagamit nnten si SQL sa Student class nten
+		// '$this->connect' may access na tayo sa Sql class kya magagamit nnten si SQL sa Student class nten
 		// '->query($sql);' eto mag ttrigger ng query to insert the data
-		$result = $this->getConnection()->query($sql);
+		$result = $this->connect->query($sql);
 
 		if ($result) {
 			return 'Save Successfully';
 		}else{
-			return $this->getConnection()->error;
+			return $this->connect->error;
 		}
+	}
+
+	public function getStudent(){
+		$sql = 'SELECT * FROM student';
+		$result = $this->connect->query($sql);
+
+		if ($result) 
+		{
+			return $result;
+		}
+
+		return 'Error fetching student';
 	}
 }

@@ -17,7 +17,10 @@
 
 	//Inheritance Class Test
 	$student = new Student;
-	echo $student->saveStudent();
+	$students = $student->getStudent();
+	while ($row = mysqli_fetch_array($students)) {
+		echo $row['first_name'];
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,6 +28,5 @@
 	<title>OOP Exercise</title>
 </head>
 <body>
-
 </body>
 </html>
