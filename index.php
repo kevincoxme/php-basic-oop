@@ -19,7 +19,7 @@
 	$student = new Student;
 	$students = $student->getStudent();
 	while ($row = mysqli_fetch_array($students)) {
-		echo $row['first_name'];
+		echo $row['first_name'] .' '. $row['last_name'];
 	}
 ?>
 <!DOCTYPE html>
